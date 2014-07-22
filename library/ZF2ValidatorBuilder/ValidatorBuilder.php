@@ -1,6 +1,6 @@
 <?php
 
-namespace ZF2ValidatorBuilder\Builder;
+namespace ZF2ValidatorBuilder;
 
 class ValidatorBuilder
 {
