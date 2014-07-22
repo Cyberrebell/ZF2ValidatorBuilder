@@ -1,5 +1,5 @@
 {
-    "name": "cyberrebell/zf2-validator-builder",
+    "name": "cyberrebell/ZF2ValidatorBuilder",
     "description": "ValidatorBuilder for Zend Framework 2 Form-Classes",
     "authors": [
         {
