@@ -44,7 +44,7 @@ class ValidatorBuilder
     }
     
     public function attachStringLengthValidator(\Zend\Form\Element $element, $min = NULL, $max = NULL) {
-        $elementValidatorChain = $this->form->getElementValidatorChain($element);
+        $elementValidatorChain = $this->getElementValidatorChain($element);
         $options = [];
         if ($min !== NULL) {
             $options['min'] = $min;
