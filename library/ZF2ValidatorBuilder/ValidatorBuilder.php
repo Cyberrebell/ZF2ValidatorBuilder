@@ -25,26 +25,26 @@ class ValidatorBuilder
      */
     public function setElementRequired(\Zend\Form\Element $element) {
         $element->setAttribute('required', 'true'); //set browser validation
-        $this->getInputFilter()->get($element->getAttribute('name'))->setAllowEmpty(false); //set backend requirement
+        $this->form->getInputFilter()->get($element->getAttribute('name'))->setAllowEmpty(false); //set backend requirement
     }
     
     public function attachEmailAddressValidator(\Zend\Form\Element $element) {
-        $elementValidatorChain = $this->getElementValidatorChain($element);
+        $elementValidatorChain = $this->form->getElementValidatorChain($element);
         $elementValidatorChain->attachByName('EmailAddress');
     }
     
     public function attachEqualsValidator(\Zend\Form\Element $element, $value) {
-        $elementValidatorChain = $this->getElementValidatorChain($element);
+        $elementValidatorChain = $this->form->getElementValidatorChain($element);
         $elementValidatorChain->attachByName('Regex', ['pattern' => '/' . $value . '/']);
     }
     
     public function attachIdenticalValidator(\Zend\Form\Element $elementOne, \Zend\Form\Element $elementTwo) {
-        $elementTwoValidatorChain = $this->getElementValidatorChain($elementTwo);
+        $elementTwoValidatorChain = $this->form->getElementValidatorChain($elementTwo);
         $elementTwoValidatorChain->attachByName('Identical', ['token' => $elementOne->getAttribute('name'), 'strict' => true]);
     }
     
     public function attachStringLengthValidator(\Zend\Form\Element $element, $min = NULL, $max = NULL) {
-        $elementValidatorChain = $this->getElementValidatorChain($element);
+        $elementValidatorChain = $this->form->getElementValidatorChain($element);
         $options = [];
         if ($min !== NULL) {
             $options['min'] = $min;
