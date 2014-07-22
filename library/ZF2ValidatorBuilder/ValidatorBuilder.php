@@ -29,17 +29,17 @@ class ValidatorBuilder
     }
     
     public function attachEmailAddressValidator(\Zend\Form\Element $element) {
-        $elementValidatorChain = $this->form->getElementValidatorChain($element);
+        $elementValidatorChain = $this->getElementValidatorChain($element);
         $elementValidatorChain->attachByName('EmailAddress');
     }
     
     public function attachEqualsValidator(\Zend\Form\Element $element, $value) {
-        $elementValidatorChain = $this->form->getElementValidatorChain($element);
+        $elementValidatorChain = $this->getElementValidatorChain($element);
         $elementValidatorChain->attachByName('Regex', ['pattern' => '/' . $value . '/']);
     }
     
     public function attachIdenticalValidator(\Zend\Form\Element $elementOne, \Zend\Form\Element $elementTwo) {
-        $elementTwoValidatorChain = $this->form->getElementValidatorChain($elementTwo);
+        $elementTwoValidatorChain = $this->getElementValidatorChain($elementTwo);
         $elementTwoValidatorChain->attachByName('Identical', ['token' => $elementOne->getAttribute('name'), 'strict' => true]);
     }
     
