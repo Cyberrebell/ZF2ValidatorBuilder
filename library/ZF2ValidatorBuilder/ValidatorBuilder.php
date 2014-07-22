@@ -2,10 +2,25 @@
 
 namespace ZF2ValidatorBuilder;
 
+/**
+ * Toolset to apply InputFilters to form elements
+ * @author Cyberrebell
+ *
+ */
 class ValidatorBuilder
 {
+    protected $form;
+    
     /**
-     * Set element required: frontend & backend validation
+     * @param \Zend\Form\Form $form
+     */
+    function __construct(\Zend\Form\Form $form) {
+        $this->form = $form;
+    }
+    
+    /**
+     * Set element required
+     * frontend & backend validation
      * @param \Zend\Form\Element $element
      */
     public function setElementRequired(\Zend\Form\Element $element) {
@@ -47,6 +62,6 @@ class ValidatorBuilder
      */
     protected function getElementValidatorChain(\Zend\Form\Element $element) {
         $elementName = $element->getAttribute('name');
-        return $this->getInputFilter()->get($elementName)->getValidatorChain();
+        return $this->form->getInputFilter()->get($elementName)->getValidatorChain();
     }
 }
