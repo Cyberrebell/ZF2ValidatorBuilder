@@ -16,11 +16,10 @@
         "validation",
         "builder"
     ],
-    "homepage": "https://github.com/Cyberrebell/ZF2ValidatorBuilder",
     "license": "GPL-3.0",
     "require": {
         "php": ">=5.4.4",
-        "zendframework/zendframework": ">=2.3.0"
+        "zendframework/zend-form": "*"
     },
     "autoload": {
         "psr-0": {
